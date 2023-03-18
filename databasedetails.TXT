@@ -1,0 +1,159 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 131
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use zmart;
+Database changed
+mysql> show tables;
++--------------------------+
+| Tables_in_zmart          |
++--------------------------+
+| adminlog                 |
+| customerorderstofinalise |
+| zmartcustomers           |
+| zmartproductmenu         |
++--------------------------+
+4 rows in set (0.97 sec)
+
+mysql> desc adminlog;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | YES  |     | NULL    |       |
+| password | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.29 sec)
+
+mysql> desc zmartcustomers;
++----------------+-------------+------+-----+-------------------+----------------+
+| Field          | Type        | Null | Key | Default           | Extra          |
++----------------+-------------+------+-----+-------------------+----------------+
+| customer_id    | int         | NO   | PRI | NULL              | auto_increment |
+| name           | varchar(25) | NO   |     | NULL              |                |
+| mobile_nummber | varchar(20) | YES  | UNI | NULL              |                |
+| email_id       | varchar(50) | YES  | UNI | NULL              |                |
+| password       | varchar(20) | YES  |     | zmartdatabase@123 |                |
++----------------+-------------+------+-----+-------------------+----------------+
+5 rows in set (0.08 sec)
+
+mysql> desc zmartproductmenu;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| product_id       | int         | YES  | UNI | NULL    |       |
+| product_name     | varchar(25) | YES  | UNI | NULL    |       |
+| price            | int         | YES  |     | NULL    |       |
+| product_type     | varchar(20) | YES  |     | NULL    |       |
+| product_code     | int         | YES  |     | NULL    |       |
+| producton_select | int         | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.10 sec)
+
+mysql> slect *from zmartproductmenu;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect *from zmartproductmenu' at line 1
+mysql> select *from zmartproductmenu;
++------------+---------------------------+-------+---------------+--------------+------------------+
+| product_id | product_name              | price | product_type  | product_code | producton_select |
++------------+---------------------------+-------+---------------+--------------+------------------+
+|          1 | kitkat                    |    20 | chocolate     |            8 |                0 |
+|          2 | diarymilk                 |    20 | chocolate     |            8 |                0 |
+|          3 | ferrororocher             |   350 | chocolate     |            8 |                0 |
+|          4 | diarymilksilk             |   200 | chocolate     |            8 |                0 |
+|          5 | amuldarkchocolate         |   100 | chocolate     |            8 |                0 |
+|          6 | milkybar                  |    20 | chocolate     |            8 |                0 |
+|          7 | pepsi                     |    40 | drinks        |            1 |                0 |
+|          8 | coke                      |    40 | drinks        |            1 |                0 |
+|          9 | milkshakevanilla          |    30 | drinks        |            1 |                0 |
+|         10 | milkshakechocolate        |    35 | drinks        |            1 |                0 |
+|         11 | sprit                     |    35 | drinks        |            1 |                0 |
+|         12 | badammilk                 |    40 | drinks        |            1 |                0 |
+|         13 | string                    |    20 | drinks        |            1 |                0 |
+|         14 | milkybikis                |    20 | biscuits      |            2 |                0 |
+|         15 | bourbon                   |    20 | biscuits      |            2 |                0 |
+|         16 | 5050britania              |    10 | biscuits      |            2 |                0 |
+|         17 | darkfantasy               |    30 | biscuits      |            2 |                0 |
+|         18 | potatobiscuit             |    40 | biscuits      |            2 |                0 |
+|         19 | happyhappy                |    10 | biscuits      |            2 |                0 |
+|         20 | rice 1kg                  |    40 | grocerys      |            6 |                0 |
+|         21 | pulses 1kg                |    30 | grocerys      |            6 |                0 |
+|         22 | sugar 1kg                 |    30 | grocerys      |            6 |                0 |
+|         23 | wheat 1kg                 |    48 | grocerys      |            6 |                0 |
+|         24 | maida 1kg                 |    35 | grocerys      |            6 |                0 |
+|         25 | chillipowder 100g         |    30 | grocerys      |            6 |                0 |
+|         26 | pepperpowder 100g         |    35 | grocerys      |            6 |                0 |
+|         27 | cinnamon 100g             |    20 | grocerys      |            6 |                0 |
+|         28 | drygrapes 100g            |    20 | grocerys      |            6 |                0 |
+|         29 | cashew 100g               |    30 | grocerys      |            6 |                0 |
+|         30 | apple 1kg                 |   200 | fruits        |            3 |                0 |
+|         31 | orrange 1kg               |   170 | fruits        |            3 |                0 |
+|         32 | grapes 1kg                |    80 | fruits        |            3 |                0 |
+|         34 | guava 1kg                 |    90 | fruits        |            3 |                0 |
+|         35 | banana 1kg                |    70 | fruits        |            3 |                0 |
+|         36 | dragonfruit 1kg           |   146 | fruits        |            3 |                0 |
+|         37 | pomegranate 1kg           |   240 | fruits        |            3 |                0 |
+|         38 | strawberries 1box         |   140 | fruits        |            3 |                0 |
+|         39 | lemon 1piece              |     5 | fruits        |            3 |                0 |
+|         40 | onion 1kg                 |    48 | vegetables    |            4 |                0 |
+|         41 | tomato 1kg                |    43 | vegetables    |            4 |                0 |
+|         42 | capsicum                  |    20 | vegetables    |            4 |                0 |
+|         43 | potato 1kg                |    36 | vegetables    |            4 |                0 |
+|         44 | beans                     |    20 | vegetables    |            4 |                0 |
+|         45 | carrot 1kg                |    24 | vegetables    |            4 |                0 |
+|         46 | mushroom 1kg              |    60 | vegetables    |            4 |                0 |
+|         47 | eggplant 1kg              |    30 | vegetables    |            4 |                0 |
+|         48 | garlic 1kg                |    70 | vegetables    |            4 |                0 |
+|         49 | green chilli 100g         |    10 | vegetables    |            4 |                0 |
+|         50 | red chilli 100g           |    10 | vegetables    |            4 |                0 |
+|         51 | dove soap                 |    40 | personalcares |            7 |                0 |
+|         52 | mysoresandal soap         |    47 | personalcares |            7 |                0 |
+|         53 | hamam soap                |    27 | personalcares |            7 |                0 |
+|         54 | lux soap                  |    40 | personalcares |            7 |                0 |
+|         55 | medimix soap              |    20 | personalcares |            7 |                0 |
+|         56 | tissuepaper 1box          |    50 | personalcares |            7 |                0 |
+|         57 | himalayan facewash        |    50 | personalcares |            7 |                0 |
+|         58 | nivia facewash            |    70 | personalcares |            7 |                0 |
+|         59 | moisturizer nivia         |    90 | personalcares |            7 |                0 |
+|         60 | moisturizer himalayan     |   150 | personalcares |            7 |                0 |
+|         61 | shampoo 500ml             |   230 | personalcares |            7 |                0 |
+|         62 | treseme shampoo 500ml     |   280 | personalcares |            7 |                0 |
+|         64 | treseme conditioner 500ml |   320 | personalcares |            7 |                0 |
+|         65 | cleaning mop              |   180 | households    |            5 |                0 |
+|         66 | floor mate                |   100 | households    |            5 |                0 |
+|         67 | room freshner             |   180 | households    |            5 |                0 |
+|         68 | bathroom freshner         |   110 | households    |            5 |                0 |
+|         69 | floor cleaner             |    70 | households    |            5 |                0 |
+|         70 | buckets                   |   180 | households    |            5 |                0 |
+|         71 | tape                      |    80 | households    |            5 |                0 |
+|       NULL | NULL                      |  NULL | NULL          |            1 |                0 |
+|       NULL | NULL                      |  NULL | NULL          |         NULL |             NULL |
+|       NULL | miranda                   |    50 | drinks        |            1 |                0 |
++------------+---------------------------+-------+---------------+--------------+------------------+
+72 rows in set (0.14 sec)
+
+mysql> select *from zmartcustomers;
++-------------+----------+----------------+-----------------------+--------------+
+| customer_id | name     | mobile_nummber | email_id              | password     |
++-------------+----------+----------------+-----------------------+--------------+
+|           1 | seiyed   | 7094428777     | syedhaja100@gmail.com | syed@123     |
+|           3 | shrihari | 7098828777     | shrihari@100          | shrihari@321 |
++-------------+----------+----------------+-----------------------+--------------+
+2 rows in set (0.14 sec)
+
+mysql> select *from adminlog;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | syed@123 |
++----------+----------+
+1 row in set (0.10 sec)
+
+mysql>
